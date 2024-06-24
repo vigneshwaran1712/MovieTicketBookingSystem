@@ -1,18 +1,18 @@
-package com.example.movieticket.request;
+package com.example.movieticket.dto;
 
 import java.util.List;
 
-public class TheatreRequest {
+public class TheatreDTO {
 
     private String name;
     private String city;
     private String address;
-    private List<ScreenRequest> screens;
+    private List<ScreenDTO> screens;
 
-    public TheatreRequest() {
+    public TheatreDTO() {
     }
 
-    public TheatreRequest(String name, String city,String address, List<ScreenRequest> screens) {
+    public TheatreDTO(String name, String city,String address, List<ScreenDTO> screens) {
         this.name = name;
         this.city = city;
         this.address = address;
@@ -42,11 +42,11 @@ public class TheatreRequest {
         this.address = address;
     }
 
-    public List<ScreenRequest> getScreens() {
+    public List<ScreenDTO> getScreens() {
         return screens;
     }
 
-    public void setScreens(List<ScreenRequest> screens) {
+    public void setScreens(List<ScreenDTO> screens) {
         this.screens = screens;
     }
 }

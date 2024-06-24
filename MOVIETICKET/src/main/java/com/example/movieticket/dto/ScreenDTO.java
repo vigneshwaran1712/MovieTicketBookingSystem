@@ -1,14 +1,14 @@
-package com.example.movieticket.request;
+package com.example.movieticket.dto;
 
-public class ScreenRequest {
+public class ScreenDTO {
 
     private String name;
     private int no_of_seats;
 
-    public ScreenRequest() {
+    public ScreenDTO() {
     }
 
-    public ScreenRequest(String name, int no_of_seats) {
+    public ScreenDTO(String name, int no_of_seats) {
         this.name = name;
         this.no_of_seats = no_of_seats;
     }

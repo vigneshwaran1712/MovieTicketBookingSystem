@@ -1,13 +1,13 @@
 package com.example.movieticket.service;
 
+import com.example.movieticket.dto.AdminDTO;
+import com.example.movieticket.dto.ScreenDTO;
+import com.example.movieticket.dto.TheatreDTO;
 import com.example.movieticket.model.Login;
 import com.example.movieticket.repository.AdminRepository;
 import com.example.movieticket.repository.LoginRepository;
 import com.example.movieticket.repository.ScreenRepository;
 import com.example.movieticket.repository.TheatreRepository;
-import com.example.movieticket.request.AdminRequest;
-import com.example.movieticket.request.ScreenRequest;
-import com.example.movieticket.request.TheatreRequest;
 import com.example.movieticket.model.Admin;
 import com.example.movieticket.model.Screen;
 import com.example.movieticket.model.Theatre;
@@ -31,7 +31,7 @@ public class AdminService {
     private LoginRepository loginRepository;
 
     @Transactional
-    public void saveAdminWithTheatreDetails(AdminRequest adminRequest) {
+    public void saveAdminWithTheatreDetails(AdminDTO adminRequest) {
         // Extract admin details
         String name = adminRequest.getName();
         String email = adminRequest.getEmail();
@@ -51,8 +51,8 @@ public class AdminService {
         adminRepository.save(admin);
 
         // Process theatres
-        List<TheatreRequest> theatreRequests = adminRequest.getTheatres();
-        for (TheatreRequest theatreRequest : theatreRequests) {
+        List<TheatreDTO> theatreRequests = adminRequest.getTheatres();
+        for (TheatreDTO theatreRequest : theatreRequests) {
             // Create Theatre entity
             Theatre theatre = new Theatre();
             theatre.setName(theatreRequest.getName());
@@ -64,8 +64,8 @@ public class AdminService {
             theatreRepository.save(theatre);
 
             // Process screens
-            List<ScreenRequest> screenRequests = theatreRequest.getScreens();
-            for (ScreenRequest screenRequest : screenRequests) {
+            List<ScreenDTO> screenRequests = theatreRequest.getScreens();
+            for (ScreenDTO screenRequest : screenRequests) {
                 // Create Screen entity
                 Screen screen = new Screen();
                 screen.setScreenName(screenRequest.getName());
