@@ -69,8 +69,8 @@ public class Movie {
         this.director = director;
     }
 
-    public Integer getLength() {
-        return length;
+    public String getLength() {
+        return String.valueOf(length);
     }
 
     public void setLength(Integer length) {

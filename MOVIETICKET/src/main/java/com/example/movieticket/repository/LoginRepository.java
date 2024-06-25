@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface LoginRepository extends JpaRepository<Login, String> {
 
@@ -15,5 +17,6 @@ public interface LoginRepository extends JpaRepository<Login, String> {
     String findCityByEmail(@Param("email") String email);
 
 
+    Optional<Login> findByUsername(String username);
 }
 

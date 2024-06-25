@@ -11,6 +11,10 @@ import com.example.movieticket.repository.TheatreRepository;
 import com.example.movieticket.model.Admin;
 import com.example.movieticket.model.Screen;
 import com.example.movieticket.model.Theatre;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +25,10 @@ import java.util.List;
 @Service
 public class AdminService {
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     @Autowired
     private AdminRepository adminRepository;
     @Autowired
@@ -43,7 +51,7 @@ public class AdminService {
         admin.setName(name);
 
         Login login = new Login();
-        login.setPassword(password);
+        login.setPassword(passwordEncoder.encode(password));
         login.setUsername(email);
 
         loginRepository.save(login);

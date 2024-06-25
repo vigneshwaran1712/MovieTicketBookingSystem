@@ -24,7 +24,8 @@ public class MovieService {
                         movie.getActress(),
                         movie.getDirector(),
                         movie.getGenre(),
-                        movie.getImageUrl()
+                        movie.getImageUrl(),
+                        movie.getLength()
                 ))
                 .collect(Collectors.toList());
     }

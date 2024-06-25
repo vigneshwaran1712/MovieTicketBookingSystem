@@ -1,4 +1,4 @@
-package com.example.movieticket.config;
+package com.example.movieticket.configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

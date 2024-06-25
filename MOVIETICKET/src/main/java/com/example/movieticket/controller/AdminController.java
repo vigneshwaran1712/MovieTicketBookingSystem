@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 //For registration of admin and their theatres and screens
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/auth")
 public class AdminController {
 
     private final AdminService adminService;
@@ -19,10 +19,13 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registerAdmin")
     public ResponseEntity<String> registerAdmin(@RequestBody AdminDTO adminRequest) {
+        System.out.println(adminRequest.getEmail());
+        System.out.println(adminRequest.getPassword());
+        System.out.println(adminRequest.getName());
+        System.out.println(adminRequest.getTheatres());
         adminService.saveAdminWithTheatreDetails(adminRequest);
-        System.out.println(adminRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body("Admin registered successfully.");
     }
 

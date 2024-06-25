@@ -8,20 +8,42 @@ public class AdminDTO {
     private String email;
     private String password;
     private List<TheatreDTO> theatres;
-    private List<ScreenDTO> screens;
+    private String phone;
+    private String city;
+    private Boolean isAdmin;
 
 
     public AdminDTO() {
     }
 
-    public AdminDTO(String name, String email, String password, List<TheatreDTO> theatres, List<ScreenDTO> screens) {
+    public AdminDTO(String name, String email, String password,String phone,String city, boolean admin, List<TheatreDTO> theatres) {
         this.name = name;
+        this.city = city;
+        this.phone = phone;
+        this.isAdmin = admin;
         this.email = email;
         this.password = password;
         this.theatres = theatres;
-        this.screens = screens;
+    }
+    public String getPhone(){
+        return this.phone;
     }
 
+    public void setPhone(String phone){
+        this.phone = phone;
+    }
+    public String getCity(){
+        return this.city;
+    }
+    public void setCity(String city){
+        this.city = city;
+    }
+    public Boolean getIsAdmin(){
+        return this.isAdmin;
+    }
+    public void setIsAdmin(Boolean isAdmin){
+        this.isAdmin = isAdmin;
+    }
     public String getName() {
         return name;
     }
@@ -53,13 +75,5 @@ public class AdminDTO {
 
     public void setTheatres(List<TheatreDTO> theatres) {
         this.theatres = theatres;
-    }
-
-    public List<ScreenDTO> getScreens() {
-        return screens;
-    }
-
-    public void setScreens(List<ScreenDTO> screens) {
-        this.screens = screens;
     }
 }

@@ -3,7 +3,7 @@ package com.example.movieticket.controller;
 import com.example.movieticket.model.Customer;
 import com.example.movieticket.model.Login;
 import com.example.movieticket.dto.CustomerRegistrationDTO;
-import com.example.movieticket.service.RegistrationService;
+import com.example.movieticket.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class RegistrationController {
 
     @Autowired
-    private RegistrationService registrationService;
+    private LoginService loginService;
 
     @PostMapping("/register")
     public String registerCustomer(@RequestBody CustomerRegistrationDTO registrationRequest) {
@@ -30,7 +30,7 @@ public class RegistrationController {
         Customer customer = new Customer(username, name, phone, city, login);
 
         // Call service to handle registration logic
-        registrationService.registerCustomer(customer, login);
+        loginService.registerCustomer(customer, login);
         return "Registration successful!";
     }
 }
