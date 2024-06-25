@@ -5,10 +5,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface ShowRepository extends JpaRepository<Show, Integer> {
 
-    @Query("SELECT s FROM Show s WHERE STR_TO_DATE(s.startTime, '%Y-%m-%d %H:%i:%s') > STR_TO_DATE(:startTime, '%Y-%m-%d %H:%i:%s')")
-    List<Show> findShowsByStartTimeGreaterThan(@Param("startTime") String startTime);
+
+    @Query("SELECT DISTINCT s.movieId FROM Show s WHERE s.screenId IN :screenIds " +
+            "AND s.startTime > :startTime")
+    List<Integer> findMovieIdsByScreenIdsAndStartTimeGreaterThan(
+            @Param("screenIds") List<Integer> screenIds,
+            @Param("startTime") LocalDateTime startTime);
 }

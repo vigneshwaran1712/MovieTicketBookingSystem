@@ -1,12 +1,11 @@
 package com.example.movieticket.controller;
 
-import com.example.movieticket.model.Admin;
 import com.example.movieticket.model.Customer;
 import com.example.movieticket.model.Login;
+import com.example.movieticket.dto.CustomerRegistrationDTO;
 import com.example.movieticket.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -16,25 +15,22 @@ public class RegistrationController {
     private RegistrationService registrationService;
 
     @PostMapping("/register")
-    public String registerCustomer(
-            @RequestParam("username") String username,
-            @RequestParam("password") String password,
-            @RequestParam("name") String name,
-            @RequestParam("phone") String phone,
-            @RequestParam("city") String city,
-            @RequestParam("admin") boolean admin
-    ){
+    public String registerCustomer(@RequestBody CustomerRegistrationDTO registrationRequest) {
+
+        // Extract data from registrationRequest
+        String username = registrationRequest.getUsername();
+        String password = registrationRequest.getPassword();
+        String name = registrationRequest.getName();
+        String phone = registrationRequest.getPhone();
+        String city = registrationRequest.getCity();
+        boolean admin = registrationRequest.isAdmin();
 
         // Create Login entity
-        System.out.println(username);
         Login login = new Login(username, password, admin);
-
-        // Create Customer entity
         Customer customer = new Customer(username, name, phone, city, login);
 
         // Call service to handle registration logic
         registrationService.registerCustomer(customer, login);
-
         return "Registration successful!";
     }
 }

@@ -1,32 +1,34 @@
 package com.example.movieticket.dto;
 
-public class CustomerRegistrationDTO {
-    private String email;
+public class CustomerRegistrationDTO{
+
+    private String username;
     private String password;
-    private boolean admin;
     private String name;
     private String phone;
     private String city;
+    private boolean admin;
 
     // Constructors, getters, and setters
-    public CustomerRegistrationDTO() {}
 
-    public CustomerRegistrationDTO(String email, String password, boolean admin, String name, String phone, String city) {
-        this.email = email;
+    public CustomerRegistrationDTO() {
+    }
+
+    public CustomerRegistrationDTO(String username, String password, String name, String phone, String city, boolean admin) {
+        this.username = username;
         this.password = password;
-        this.admin = admin;
         this.name = name;
         this.phone = phone;
         this.city = city;
+        this.admin = admin;
     }
 
-    // Getters and setters
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -35,14 +37,6 @@ public class CustomerRegistrationDTO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
     }
 
     public String getName() {
@@ -67,5 +61,13 @@ public class CustomerRegistrationDTO {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }
