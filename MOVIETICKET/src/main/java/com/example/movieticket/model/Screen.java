@@ -1,4 +1,5 @@
 package com.example.movieticket.model;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +16,8 @@ public class Screen {
     @Column(name = "ScreenName", length = 50)
     private String screenName;
 
-    @Column(name = "NoOfSeats", nullable = false)
-    private int noOfSeats;
+    @Column(name = "Seats", nullable = false)
+    private int Seats;
 
 
     @ManyToOne
@@ -48,11 +49,11 @@ public class Screen {
     }
 
     public int getNoOfSeats() {
-        return noOfSeats;
+        return Seats;
     }
 
     public void setNoOfSeats(int noOfSeats) {
-        this.noOfSeats = noOfSeats;
+        this.Seats = noOfSeats;
     }
 
     public Theatre getTheatre() {

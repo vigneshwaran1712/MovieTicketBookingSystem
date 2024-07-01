@@ -4,19 +4,22 @@ import java.util.List;
 
 public class TheatreDTO {
 
+
     private String name;
     private String city;
     private String address;
-    private List<ScreenDTO> screens;
+    private int screens;
+    private List<ScreenDTO> screen_details;
 
     public TheatreDTO() {
     }
 
-    public TheatreDTO(String name, String city,String address, List<ScreenDTO> screens) {
+    public TheatreDTO(String name,String screens, String city, String address, List<ScreenDTO> screen_details) {
         this.name = name;
         this.city = city;
         this.address = address;
-        this.screens = screens;
+        this.screens = Integer.parseInt(screens);
+        this.screen_details = screen_details;
     }
 
     public String getName() {
@@ -42,11 +45,19 @@ public class TheatreDTO {
         this.address = address;
     }
 
-    public List<ScreenDTO> getScreens() {
+    public int getScreens() {
         return screens;
     }
 
-    public void setScreens(List<ScreenDTO> screens) {
+    public void setScreen_details(List<ScreenDTO> screen_details) {
+        this.screen_details = screen_details;
+    }
+
+    public List<ScreenDTO> getScreen_details() {
+        return screen_details;
+    }
+
+    public void setScreens(int screens) {
         this.screens = screens;
     }
 }

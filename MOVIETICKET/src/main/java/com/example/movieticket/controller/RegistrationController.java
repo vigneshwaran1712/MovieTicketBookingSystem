@@ -17,7 +17,7 @@ public class RegistrationController {
     @PostMapping("/register")
     public String registerCustomer(@RequestBody CustomerRegistrationDTO registrationRequest) {
 
-        // Extract data from registrationRequest
+        System.out.println(registrationRequest);
         String username = registrationRequest.getUsername();
         String password = registrationRequest.getPassword();
         String name = registrationRequest.getName();

@@ -10,7 +10,7 @@ public class AdminDTO {
     private List<TheatreDTO> theatres;
     private String phone;
     private String city;
-    private Boolean isAdmin;
+    private Boolean admin;
 
 
     public AdminDTO() {
@@ -20,7 +20,7 @@ public class AdminDTO {
         this.name = name;
         this.city = city;
         this.phone = phone;
-        this.isAdmin = admin;
+        this.admin = admin;
         this.email = email;
         this.password = password;
         this.theatres = theatres;
@@ -38,11 +38,11 @@ public class AdminDTO {
     public void setCity(String city){
         this.city = city;
     }
-    public Boolean getIsAdmin(){
-        return this.isAdmin;
+    public Boolean getAdmin(){
+        return this.admin;
     }
-    public void setIsAdmin(Boolean isAdmin){
-        this.isAdmin = isAdmin;
+    public void setAdmin(Boolean isAdmin){
+        this.admin = isAdmin;
     }
     public String getName() {
         return name;
@@ -69,7 +69,6 @@ public class AdminDTO {
     }
 
     public List<TheatreDTO> getTheatres() {
-        System.out.println(theatres);
         return theatres;
     }
 

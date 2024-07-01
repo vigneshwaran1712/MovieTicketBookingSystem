@@ -21,10 +21,6 @@ public class AdminController {
 
     @PostMapping("/registerAdmin")
     public ResponseEntity<String> registerAdmin(@RequestBody AdminDTO adminRequest) {
-        System.out.println(adminRequest.getEmail());
-        System.out.println(adminRequest.getPassword());
-        System.out.println(adminRequest.getName());
-        System.out.println(adminRequest.getTheatres());
         adminService.saveAdminWithTheatreDetails(adminRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body("Admin registered successfully.");
     }

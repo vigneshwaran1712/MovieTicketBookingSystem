@@ -18,16 +18,24 @@ public class Booking {
     private String ticketsBooked;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ShowId", referencedColumnName = "ShowId", insertable = false, updatable = false)
+    @JoinColumn(name = "ShowId", referencedColumnName = "ShowId", insertable = true, updatable = true)
     private Show show;
+
 
     @Column(name = "Cost")
     private Integer cost;
 
-    // Constructors, getters, and setters
-    // Omitted for brevity
+    public Booking(int cost,String customerId,Show show) {
+        this.customerId = customerId;
+        this.show = show;
+        this.cost = cost;
+    }
 
-    // Getters and Setters
+    public Booking() {
+
+    }
+
+
     public Integer getBookingId() {
         return bookingId;
     }

@@ -21,7 +21,7 @@ public class Movie {
     private String genre;
     private String imageUrl;
 
-    // Constructors, getters, and setters
+    // Constructors, getters, and setter
 
     public Movie() {
     }

@@ -72,12 +72,12 @@ public class AdminService {
             theatreRepository.save(theatre);
 
             // Process screens
-            List<ScreenDTO> screenRequests = theatreRequest.getScreens();
+            List<ScreenDTO> screenRequests = theatreRequest.getScreen_details();
             for (ScreenDTO screenRequest : screenRequests) {
                 // Create Screen entity
                 Screen screen = new Screen();
                 screen.setScreenName(screenRequest.getName());
-                screen.setNoOfSeats(screenRequest.getNo_of_seats());
+                screen.setNoOfSeats(screenRequest.getSeats());
                 screen.setTheatre(theatre); // Set theatre for screen
 
                 // Save screen

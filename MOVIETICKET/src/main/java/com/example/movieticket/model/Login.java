@@ -1,8 +1,12 @@
 
 package com.example.movieticket.model;
 import javax.persistence.*;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.List;
 import java.util.Collection;
@@ -10,6 +14,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "LOGIN")
+@Scope(value = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Login implements UserDetails {
 
     @Id
@@ -22,7 +27,8 @@ public class Login implements UserDetails {
     @Column(name = "Admin", nullable = false)
     private boolean admin;
 
-    // Constructors
+//    private boolean authenticated;
+    private String token;
 
     public Login() {
     }
@@ -34,6 +40,14 @@ public class Login implements UserDetails {
     }
 
     // Getters and setters
+
+    public String getToken(){
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     public String getUsername() {
         return username;
@@ -92,4 +106,12 @@ public class Login implements UserDetails {
                 ", admin=" + admin +
                 '}';
     }
+
+    //public boolean isAuthenticated(){
+        //return authenticated;
+    //}
+
+    //public void setAuthenticated(boolean authenticated){
+        //this.authenticated = authenticated;
+    //}
 }

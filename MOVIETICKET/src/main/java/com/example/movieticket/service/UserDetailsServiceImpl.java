@@ -30,7 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         // Build UserDetails object
         return org.springframework.security.core.userdetails.User.builder()
                 .username(login.getUsername())
-                .password(login.getPassword()) // Assuming password is stored in plaintext in the database
+                .password(login.getPassword())
                 .authorities(Collections.singletonList(new SimpleGrantedAuthority("USER")))
                 .build();
     }
